@@ -2,18 +2,21 @@
 % Please edit documentation in R/top10.R
 \name{top10}
 \alias{top10}
-\title{Title}
+\title{Filtered a data frame to the rows corresponding to the 10 most common values of a variable}
 \usage{
 top10(data, x)
 }
 \arguments{
-\item{data}{A data frame}
+\item{data}{A data frame.}
 
-\item{x}{A character or factor vector used to determine most common}
+\item{x}{The variable in the data frame to filter on.}
 }
 \value{
-A filtered data frame that only includes rows for the top 10 most common x values
+The filtered data frame.
 }
 \description{
-Title
+Filtered a data frame to the rows corresponding to the 10 most common values of a variable
+}
+\examples{
+top10(camDogs, Dog_Name)
 }

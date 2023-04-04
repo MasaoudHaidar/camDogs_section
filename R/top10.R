@@ -1,14 +1,14 @@
-#' Title
+#' Filtered a data frame to the rows corresponding to the 10 most common values of a variable
 #'
-#' @param data A data frame
-#' @param x A character or factor vector used to determine most common
+#' @param data A data frame.
+#' @param x The variable in the data frame to filter on.
 #'
-#' @return A filtered data frame that only includes rows for the top 10 most common x values
+#' @return The filtered data frame.
+#' @examples
+#' top10(camDogs, Dog_Name)
 #' @export
-n <- NULL
-
 top10 <- function(data, x){
-
+  n <- NULL
   # Find the 10 top based on x
   top10x <- dplyr::count(data, {{x}}) |>
     dplyr::slice_max(n = 10, order_by = n) |>
@@ -18,3 +18,4 @@ top10 <- function(data, x){
   # Filter dataset to only the 10 top based on x
   return(dplyr::filter(data, {{x}} %in% top10x))
 }
+
