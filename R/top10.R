@@ -9,6 +9,9 @@
 #' @export
 top10 <- function(data, x){
   n <- NULL
+
+  # Add in error if not character or factor for x
+
   # Find the 10 top based on x
   top10x <- dplyr::count(data, {{x}}) |>
     dplyr::slice_max(n = 10, order_by = n) |>
