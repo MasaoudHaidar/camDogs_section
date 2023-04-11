@@ -11,7 +11,11 @@ test_that("check class", {
   expect_s3_class(top10(camDogs, Dog_Name), "data.frame")
 })
 
-# test_that("errors when it should", {
-#   expect_error(top10(camDogs, Latitude_masked))
-#
-# })
+test_that("errors when given an incorrect input class", {
+  expect_error(top10(camDogs, Latitude_masked))
+
+})
+
+test_that("Less than or equal number of rows in the filtered dataset", {
+  expect_lte(nrow(top10(camDogs, Dog_Name)), nrow(camDogs))
+})
